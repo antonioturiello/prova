@@ -50,7 +50,7 @@ margin-left:+5px;
 </style>
 
 <div id="PLAYPAUSE">
-<a href='javascript:PLAYPAUSE()'>
+<a href='javascript:PLAYPAUSE()' onclick='V()'>
 <img src='' id='iconPLAYPAUSE'></a>
 </div>
 
@@ -77,6 +77,10 @@ margin-left:+5px;
     var version = '1.0.0';
     var urlid = '3b22b93f0d6a4feab5c90c382fa2812e';
     var client = new Sketchfab( version, iframe );
+        
+var V = function(){
+navigator.vibrate(100);
+};
 
 var k = 0;
 var n = 5;
