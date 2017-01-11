@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sketchfab Viewer API example</title>
+
+    <!-- Insert this script -->
+    <script type="text/javascript" src="https://d1jlf623bx36qa.cloudfront.net/api/sketchfab-viewer-1.0.0.js"></script>
+</head>
+
+<body>
+
+    <!-- Insert an empty iframe -->
+
+    <iframe frameborder="0" scrolling="no" src="" id="api-frame" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" width="100%" style="height:100vh; position:fixed; margin-top:-7px; margin-left:-8px;"></iframe>
+
+<style type = 'text/css'>
+
+html{
+background:#000000;}
+
+#PLAYPAUSE{
+position:fixed;
+top:100%;
+left:0%;
+margin-top:-44px;
+margin-left:+5px;
+
+//#VELOCITY{
+//position:fixed;
+//top:100%;
+//left:50%;
+//margin-top:-60px;
+//margin-left:-24px;}
+
+//#LAST{
+//position:fixed;
+//top:50%;
+//left:100%;
+//margin-top:-24px;
+//margin-left:-60px;}
+
+//#FIRST{
+//position:fixed;
+//top:50%;
+//left:0%;
+//margin-top:-24px;
+//margin-left:+12px;}
+
+</style>
+
+<div id="PLAYPAUSE">
+<a href='javascript:PLAYPAUSE()'>
+<img src='' id='iconPLAYPAUSE'></a>
+</div>
+
+<!--
+<div id="VELOCITY">
+<a href='javascript:VELOCITY()'>
+<img src='' id='iconVELOCITY'></a>
+</div>
+
+<div id="LAST">
+<a href='javascript:LAST()'>
+<img src='' id='iconLAST'></a>
+</div>
+
+<div id="FIRST">
+<a href='javascript:FIRST()'>
+<img src='' id='iconFIRST'></a>
+</div>
+-->
+
+    <!-- Initialize the viewer -->
+    <script type="text/javascript">
+    var iframe = document.getElementById( 'api-frame' );
+    var version = '1.0.0';
+    var urlid = '3b22b93f0d6a4feab5c90c382fa2812e';
+    var client = new Sketchfab( version, iframe );
+
+var k = 0;
+var n = 5;
+var step = 1;
+    //var v = 500;
+document.getElementById('iconPLAYPAUSE').src= 'LOGO5.png';
+var PLAYPAUSE = function(){
+k=k+1
+//if(k%2==1){
+//document.getElementById('iconPLAYPAUSE').src= 'PAUSE.png';
+//}
+//if(k%2==0){
+//document.getElementById('iconPLAYPAUSE').src= 'PLAY.png';
+//}
+clearInterval(this.intervalPLAYPAUSE);
+this.intervalPLAYPAUSE = setInterval(function(){
+if(k%2==1){
+    //if(n==2){n=-1;}
+    //n=n+1;
+if(n==0){
+step = 1;
+}
+if(n==10){
+step = -1;
+}
+n = n + step;
+document.getElementById('iconPLAYPAUSE').src= 'LOGO' + n + '.png';
+}
+if(k%2==0){
+clearInterval(intervalPLAYPAUSE);
+}
+}, 100);
+};
+
+//var j = 0;
+//document.getElementById('iconVELOCITY').src= '1X.png';
+//var VELOCITY = function(){
+//j=j+1
+//if(j%2==1){
+//v = 250;;
+//document.getElementById('iconVELOCITY').src= '2X.png';
+//}
+//if(j%2==0){
+//v = 500;
+//document.getElementById('iconVELOCITY').src= '1X.png';
+//}
+//clearInterval(this.intervalPLAYPAUSE);
+//this.intervalPLAYPAUSE = setInterval(function(){
+//if(k%2==1){
+//if(n==2){n=-1;}
+//n=n+1;
+//document.getElementById('iconPLAYPAUSE').src= 'PAUSE.png';
+//if(k%2==0){
+//document.getElementById('iconPLAYPAUSE').src= 'PLAY.png';
+//clearInterval(intervalPLAYPAUSE);
+//}
+//}
+//}, v);
+//};
+
+//document.getElementById('iconLAST').src= 'LAST.png';
+//var LAST = function(){
+//n=2;
+//document.getElementById('iconLAST').src= 'clickLAST.png';
+//var intervalLAST = setInterval(function(){
+//if(n!=2){
+//document.getElementById('iconLAST').src= 'LAST.png';
+//clearInterval(intervalLAST);
+//}
+//}, 1);
+//};
+
+//document.getElementById('iconFIRST').src= 'FIRST.png';
+//var FIRST = function(){
+//n=0;
+//document.getElementById('iconFIRST').src= 'clickFIRST.png';
+//var intervalFIRST = setInterval(function(){
+//if(n!=0){
+//document.getElementById('iconFIRST').src= 'FIRST.png';
+//clearInterval(intervalFIRST);
+//}
+//}, 1);
+//};
+
+var a = "/sketchfab-data/processing/28f586bf830d4e5b90d408320372b69a/preprocess/A" + n + ".obj";
+
+    client.init( urlid, {
+        success: function onSuccess( api ){
+            api.start();
+            api.addEventListener( 'viewerready', function() {
+
+                // API is ready to use
+                // Insert your code here
+
+//setInterval(function(){
+//api.getCurrentTime( function ( err, time ) {
+//console.log( time );
+//if(time >= 0 && time < 0.499999999999999){
+//console.log( 1 );
+//}
+//if(time >= 0.499999999999999 && time < 0.999999999999999){
+//console.log( 2 );
+//}
+//if(time >= 0.999999999999999 && time <= 1.5){
+//console.log( 3 );
+//}
+//if(Math.ceil(time/0.5) != 0 || Math.ceil(time/0.5) != 1 || Math.ceil(time/0.5) != 2){
+ //console.log( Math.ceil(time/0.5) );
+//} 
+//} );
+// }, 500);
+
+api.getNodeMap( function ( err, nodes ) {
+//console.log(nodes);
+    if ( err ) {
+       console.log( err );
+   }
+for (var key in nodes) {
+for (var i=0; i<11; i++){
+if(nodes[key]["name"] == "/sketchfab-data/processing/28f586bf830d4e5b90d408320372b69a/preprocess/A" + i + ".obj" && i != 5) {
+api.hide(nodes[key]["instanceID"],[nodes]);}
+}
+}
+});
+setInterval(function(){
+if(a != "/sketchfab-data/processing/28f586bf830d4e5b90d408320372b69a/preprocess/A" + n + ".obj"){
+api.getNodeMap( function ( err, nodes ) {
+    if ( err ) {
+       console.log( err );
+    }
+for (var key in nodes) {
+if(nodes[key]["name"] == a) {
+api.hide(nodes[key]["instanceID"],[nodes]);}
+if(nodes[key]["name"] == "/sketchfab-data/processing/28f586bf830d4e5b90d408320372b69a/preprocess/A" + n + ".obj") {
+api.show(nodes[key]["instanceID"],[nodes]);}
+}
+a="/sketchfab-data/processing/28f586bf830d4e5b90d408320372b69a/preprocess/A" + n + ".obj";
+});
+}
+}, 1);
+
+            } );
+        },
+        error: function onError() {
+            console.log( 'Viewer error' );
+        }
+    } );
+
+    </script>
+</body>
+</html>
